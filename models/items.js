@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var itemSchema = new Schema({
+var itemsSchema = new Schema({
   user: String,
   item: String,
   isDone: Boolean,
@@ -9,7 +9,7 @@ var itemSchema = new Schema({
 });
 
 
-var Items = mongoose.model('Items', itemSchema);
+var Items = mongoose.model('Items', itemsSchema);
 
 
 module.exports = Items;

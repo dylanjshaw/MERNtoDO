@@ -11,10 +11,10 @@ app.use('/assets', express.static(__dirname + '/public'));
 app.set('view engine', 'ejs');
 
 
-
 var itemsController = require('./controllers/itemsController');
+var usersController = require('./controllers/usersController');
 
 itemsController(app);
-
+usersController(app);
 
 app.listen(port);
