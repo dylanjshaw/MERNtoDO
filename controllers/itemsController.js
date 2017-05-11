@@ -7,16 +7,18 @@ module.exports = function(app) {
   // app.use(bodyParser.json());
   // app.use(bodyParser.urlencoded({ extended: true }));
 
-  app.get('/', function(req, res){
-    res.send('whats up world');
-  });
-  //landing page -- works
-
-  app.get('/items/all', function(req, res){
+  app.get('/items', function(req, res){
     mongoose.model('Items').find({}, function(err, items){
-      res.send(items);
+      res.render('itemsList', {items: items});
     });
   });
+  //items list
+
+  // app.get('/items/all', function(req, res){
+  //   mongoose.model('Items').find({}, function(err, items){
+  //     res.send(items);
+  //   });
+  // });
   //send all items -- works
 
   app.get('/items/user/:name', function(req, res){
@@ -32,10 +34,10 @@ module.exports = function(app) {
       res.send(item);
     });
   });
+
+  app.post('/items', function(req, res){
+
+  });
+
 }
   //send an item via its ID -- works
-
-    // Items.findById({_id: req.params.id}, function(err, item){
-    //   if (err) throw err;
-    //   res.send(item);
-    // });

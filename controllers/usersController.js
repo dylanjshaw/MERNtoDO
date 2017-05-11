@@ -6,5 +6,6 @@ module.exports = function(app) {
       res.send(users);
     });
   });
+  //send all users -- works
 
 }
