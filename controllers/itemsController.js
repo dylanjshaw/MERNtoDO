@@ -12,6 +12,12 @@ module.exports = function(app) {
   });
   //landing page
 
+  app.get('/items/all', function(req, res){
+    mongoose.model('Items').find({}, function(err, items){
+      res.send(items);
+    });
+  });
+
   app.get('/items/:name', function(req, res){
     Items.find({user: req.params.name}, function(err, items){
       res.send(items);
@@ -19,11 +25,6 @@ module.exports = function(app) {
   });
   //send all items associated with user
 
-  app.get('/items/all', function(req, res){
-    Items.find(function(err, items){
-      res.send(items);
-    });
-  });
   //send all items
 
   app.get('/item/:id', function(req, res){
