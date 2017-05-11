@@ -7,7 +7,7 @@
   </head>
   <body>
     <header>
-      <h4>MERN TO-DO:</h4>
+      <h2>MERN TO-DO:</h2>
     </header>
     <div class="container">
       <div class="to-do-list">
@@ -19,13 +19,16 @@
             <% for(var i=0; i<items.length; i++) {%>
               <tr>
                 <td><%= items[i].item %></td>
-                <td><%= items[i].isDone %></td>
+                <!-- <td><%= items[i].isDone %></td> -->
               </tr>
             <% } %>
         </table>
       </div>
       <div class="to-do-form">
-
+        <form action="/items" method="post">
+          <input type="text" name="item" placeholder="Feed Frank">
+          <input type="submit" value="Add">
+        </form>
       </div>
     </div>
   </body>

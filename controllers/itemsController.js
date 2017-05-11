@@ -4,8 +4,8 @@ var Items = require('../models/items');
 
 module.exports = function(app) {
 
-  // app.use(bodyParser.json());
-  // app.use(bodyParser.urlencoded({ extended: true }));
+  app.use(bodyParser.json());
+  app.use(bodyParser.urlencoded({ extended: true }));
 
   app.get('/items', function(req, res){
     mongoose.model('Items').find({}, function(err, items){
@@ -29,7 +29,9 @@ module.exports = function(app) {
   });
 
   app.post('/items', function(req, res){
-
+    var newItem = new Items({item: req.body.item});
+    newItem.save();
+    res.redirect('/items');
   });
 
 }
