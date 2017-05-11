@@ -2,6 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" type='text/css' href="/assets/style.css">
     <title>MERNtoDo</title>
   </head>
   <body>
@@ -11,9 +12,14 @@
     <div class="container">
       <div class="to-do-list">
         <table>
+              <tr>
+                <th>Item</th>
+                <th>Done?</th>
+              </tr>
             <% for(var i=0; i<items.length; i++) {%>
               <tr>
                 <td><%= items[i].item %></td>
+                <td><%= items[i].isDone %></td>
               </tr>
             <% } %>
         </table>

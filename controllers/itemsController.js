@@ -14,13 +14,6 @@ module.exports = function(app) {
   });
   //items list
 
-  // app.get('/items/all', function(req, res){
-  //   mongoose.model('Items').find({}, function(err, items){
-  //     res.send(items);
-  //   });
-  // });
-  //send all items -- works
-
   app.get('/items/user/:name', function(req, res){
      Items.find({user: req.params.name}, function(err, items){
       res.send(items);
