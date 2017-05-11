@@ -10,22 +10,22 @@ module.exports = function(app) {
   app.get('/', function(req, res){
     res.send('whats up world');
   });
-  //landing page
+  //landing page -- works
 
   app.get('/items/all', function(req, res){
     mongoose.model('Items').find({}, function(err, items){
       res.send(items);
     });
   });
+  //send all items -- works
 
-  app.get('/items/:name', function(req, res){
-    Items.find({user: req.params.name}, function(err, items){
+  app.get('/items/user/:name', function(req, res){
+     Items.find({user: req.params.name}, function(err, items){
       res.send(items);
     });
   });
-  //send all items associated with user
+  //send all items associated with user -- works
 
-  //send all items
 
   app.get('/item/:id', function(req, res){
     Items.findById(req.params.id, function(err, item){
@@ -33,7 +33,7 @@ module.exports = function(app) {
     });
   });
 }
-  //send an item via its ID
+  //send an item via its ID -- works
 
     // Items.findById({_id: req.params.id}, function(err, item){
     //   if (err) throw err;
