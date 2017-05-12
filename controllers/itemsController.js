@@ -34,5 +34,15 @@ module.exports = function(app) {
     res.redirect('/items');
   });
 
+  app.get('/delete/item/:id', function(req, res){
+    Items.findOneAndRemove({_id: req.params.id}, function(err, item){
+      if(err){
+        console.log(err)
+        return res.status(500).send();
+      }
+        return res.status(200).send();
+    });
+    res.redirect('/items');
+  });
 }
   //send an item via its ID -- works

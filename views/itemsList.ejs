@@ -14,12 +14,18 @@
         <table>
               <tr>
                 <th>Item</th>
-                <th>Done?</th>
+                <!-- <th>Done?</th> -->
               </tr>
             <% for(var i=0; i<items.length; i++) {%>
               <tr>
                 <td><%= items[i].item %></td>
                 <!-- <td><%= items[i].isDone %></td> -->
+                <td>
+                  <form action='/delete/item/<%= items[i].id %>' method="GET">
+                    <!-- <input type="hidden" name="_method" value="DELETE"> -->
+                    <input type="submit" value="Delete">
+                  </form>
+                </td>
               </tr>
             <% } %>
         </table>
